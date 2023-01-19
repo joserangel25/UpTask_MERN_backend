@@ -15,7 +15,8 @@ dotenv.config()
 conectarDB()
 
 //Configurar CORS
-const whiteList =[process.env.FRONTEND_URL, 'http://localhost:5173']
+// const whiteList =[process.env.FRONTEND_URL, 'http://localhost:5173']
+const whiteList = ['https://uptask-work.netlify.app']
 
 const corsOptions = {
   origin: function (origin, callback){

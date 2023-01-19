@@ -25,6 +25,7 @@ const corsOptions = {
       callback(null, true)
     } else {
       //No tiene permisos para consultar API
+      console.log(origin)
       callback(new Error('Error de CORS'))
     }
   }

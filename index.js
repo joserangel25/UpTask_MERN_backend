@@ -46,16 +46,12 @@ const servidor = app.listen(PORT, () => {
 })
 
 //Sockect.io
-// import http from 'http'
 import { Server } from 'socket.io'
-
-// const server = http.createServer(app)
 
 const io = new Server(servidor, {
   pingTimeout: 60000,
   cors: {
     origin: process.env.FRONTEND_URL,
-    // methods: ["GET", "POST"]
   }
 });
 

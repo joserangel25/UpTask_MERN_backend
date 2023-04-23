@@ -19,11 +19,11 @@ const registrar = async (req, res) => {
     await usuario.save()
 
     //Enviando los datos al Email
-    emailRegistro({
+    await emailRegistro({
       nombre: usuario.nombre,
       email: usuario.email,
       token: usuario.token
-    })
+    }) 
     res.json({msg: 'Usuario creado correctamente. Revisa tu email para confirmar la cuenta y acceder'})
   } catch (error) {
     console.log(error)
@@ -36,7 +36,6 @@ const autenticar = async (req, res) => {
 
   //Comprobar si el usuario existe
   const usuario = await Usuario.findOne({ email })
-  console.log(usuario)
   if(!usuario){
     const error = new Error('El correo no está asociado a una cuenta creada');
     return res.status(404).json({msg: error.message})
